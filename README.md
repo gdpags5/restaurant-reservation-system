@@ -67,7 +67,7 @@ Ensure the following tools are installed on your machine:
 
 ## 📘 Accessing OpenAPI Documentation
 Once the application is running, you can access the live API documentation via Swagger UI:
-```http://localhost:8080/swagger-ui/index.html
+`http://localhost:8080/swagger-ui/index.html`
 This interface allows you to:
 - Explore all available endpoints
 - View request/response schemas
