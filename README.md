@@ -38,3 +38,31 @@ Ensure the following tools are installed on your machine:
    mvn spring-boot:run
 4. The backend will start
    `http://localhost:8080`
+
+---
+
+## 🧪 How to Test Using Postman
+1. Open Postman and create a new request.
+2. Set the request type to `POST`, `GET`, `PUT` or as needed.
+3. Use the following sample endpoints:
+   | Action | Method | Endpoint |
+   |--------|--------|----------|
+   | Create reservation | POST | `/reservations` |
+   | Cancel reservation | POST | `/reservations/{id}/cancel` |
+   | Update reservation | PUT  | `/reservations/{id}` |
+   | Get by customer ID | GET  | `/reservations/customer/{id}` | 
+4. Example `POST/reservations` payload:
+   ```json
+   {
+  "customerDTO": {
+    "id": 101,
+    "name": "Juan dela Cruz",
+    "email": "juandelacruz@email.com",
+    "mobileNumber": "09171234567"
+  },
+  "numberOfGuests": 5,
+  "reservationDate": "2025-11-08",
+  "reservationTime": "18:30",
+  "status": "PENDING",
+  "methodOfNotification": "SMS"
+}
