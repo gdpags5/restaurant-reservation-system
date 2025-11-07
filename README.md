@@ -52,7 +52,7 @@ Ensure the following tools are installed on your machine:
    | Update reservation | PUT  | `/reservations/{id}` |
    | Get by customer ID | GET  | `/reservations/customer/{id}` | 
 4. Example `POST/reservations` payload:
-   ```
+   ```json
    {
    "customerDTO": {
        "id": 101,
@@ -66,4 +66,3 @@ Ensure the following tools are installed on your machine:
    "status": "PENDING",
    "methodOfNotification": "SMS"
   }
-  ```
