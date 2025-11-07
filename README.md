@@ -30,3 +30,11 @@ Ensure the following tools are installed on your machine:
    ```bash
    git clone https://github.com/gdpags5/restaurant-reservation-system.git
    cd restaurant-reservation-system
+2. Build the project:
+   ```bash
+   mvn clean install
+3. Run the application:
+   ```bash
+   mvn spring-boot:run
+4. The backend will start
+   `http://localhost:8080`
