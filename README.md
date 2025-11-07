@@ -61,7 +61,7 @@ Ensure the following tools are installed on your machine:
    "reservationTime": "18:30",
    "status": "PENDING",
    "methodOfNotification": "SMS"
-  }
+  }```
 
 ---
 
