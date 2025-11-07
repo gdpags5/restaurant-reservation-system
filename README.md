@@ -52,18 +52,18 @@ Ensure the following tools are installed on your machine:
    | Update reservation | PUT  | `/reservations/{id}` |
    | Get by customer ID | GET  | `/reservations/customer/{id}` | 
 4. Example `POST/reservations` payload:
-   ```json
+   ```
    {
-  "customerDTO": {
-    "id": 101,
-    "name": "Juan dela Cruz",
-    "email": "juandelacruz@email.com",
-    "mobileNumber": "09171234567"
-  },
-  "numberOfGuests": 5,
-  "reservationDate": "2025-11-08",
-  "reservationTime": "18:30",
-  "status": "PENDING",
-  "methodOfNotification": "SMS"
-}
-```
+   "customerDTO": {
+       "id": 101,
+       "name": "Juan dela Cruz",
+       "email": "juandelacruz@email.com",
+       "mobileNumber": "09171234567"
+   },
+   "numberOfGuests": 5,
+   "reservationDate": "2025-11-08",
+   "reservationTime": "18:30",
+   "status": "PENDING",
+   "methodOfNotification": "SMS"
+  }
+  ```
