@@ -66,3 +66,4 @@ Ensure the following tools are installed on your machine:
   "status": "PENDING",
   "methodOfNotification": "SMS"
 }
+```
