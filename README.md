@@ -1,13 +1,10 @@
 # 🍽️ Restaurant Reservation System Backend
-
 This is a Spring Boot–based backend service for managing restaurant reservations. It provides RESTful APIs for creating, updating, canceling, and retrieving reservations, with support for customer details, notification preferences, and reservation statuses. The system is designed for clarity, maintainability, and real-world reliability, featuring robust DTO validation and OpenAPI documentation.
 
 ---
 
 ## ⚙️ Installation Guidelines
-
 ### ✅ Prerequisites
-
 Ensure the following tools are installed on your machine:
 
 | Tool      | Version Required | Installation Guide |
@@ -25,7 +22,6 @@ Ensure the following tools are installed on your machine:
 ---
 
 ## 🚀 How to Run the Program
-
 1. Clone the repository:
    ```bash
    git clone https://github.com/gdpags5/restaurant-reservation-system.git
@@ -66,3 +62,20 @@ Ensure the following tools are installed on your machine:
    "status": "PENDING",
    "methodOfNotification": "SMS"
   }
+
+---
+
+## 📘 Accessing OpenAPI Documentation
+Once the application is running, you can access the live API documentation via Swagger UI:
+```http://localhost:8080/swagger-ui/index.html
+This interface allows you to:
+- Explore all available endpoints
+- View request/response schemas
+- Execute live API calls directly from the browser
+
+---
+
+## 🧩 Notes
+- Ensure your system clock and timezone are correct for accurate reservation timestamps.
+- All date/time fields use ISO 8601 format (`YYYY-MM-DD`, `HH:mm`, `YYYY-MM-DDTHH:mm:ss`).
+- Validation errors will return `400 Bad Request` with detailed messages.
