@@ -11,7 +11,9 @@ import io.gdpags5.rrs.services.ReservationService;
 
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,7 +35,7 @@ public class ReservationServiceImpl implements ReservationService {
 
     @Override
     public ReservationDTO saveOrUpdate(ReservationDTO dto) {
-        Customer customer = null;
+        Customer customer;
 
         if (dto.customerDTO().id() == null) {
             Customer customerToBedSaved = new Customer();
@@ -71,7 +73,7 @@ public class ReservationServiceImpl implements ReservationService {
                                 savedOrUpdatedReservation.getDateAndTimeUpdated());
 
         // Call the notification service and send the reservation notification.
-        notificationService.sendReservationNotification(savedOrUpdateReservationDTO.customerDTO(), savedOrUpdateReservationDTO);
+        notificationService.sendReservationNotification(savedOrUpdateReservationDTO);
 
         return savedOrUpdateReservationDTO;
     }
@@ -113,6 +115,19 @@ public class ReservationServiceImpl implements ReservationService {
     @Override
     public List<ReservationDTO> findReservationsByCustomerId(Long customerId) {
         return reservationRepository.findByCustomerId(customerId).stream()
+                .map(reservation -> new ReservationDTO(reservation.getId(),
+                        customerService.findById(reservation.getCustomer().getId()).orElseThrow(),
+                        reservation.getNumberOfGuests(),
+                        reservation.getReservationDate(),
+                        reservation.getReservationTime(),
+                        reservation.getStatus(),
+                        reservation.getMethodOfNotification(),
+                        reservation.getDateAndTimeUpdated())).toList();
+    }
+
+    @Override
+    public List<ReservationDTO> findReservationsByReminderWindow(LocalDate date, LocalTime startTime, LocalTime endTime) {
+        return reservationRepository.findReservationByReminderWindow(date, startTime, endTime).stream()
                 .map(reservation -> new ReservationDTO(reservation.getId(),
                         customerService.findById(reservation.getCustomer().getId()).orElseThrow(),
                         reservation.getNumberOfGuests(),
